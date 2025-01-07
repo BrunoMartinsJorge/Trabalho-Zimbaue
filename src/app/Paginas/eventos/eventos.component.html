@@ -1,0 +1,43 @@
+<main>
+  <section class="banner-eventos">
+    <div class="texto-eventos">
+      <h3>Eventos do Instituto</h3>
+      <p>
+        O Instituto do Negro Zimbauê, é uma organização que desempenha um papel
+        fundamental na promoção da cultura negra, na defesa dos direitos humanos
+        e na luta contra o racismo. Ao longo de seus anos de existência, o
+        instituto tem organizado diversos eventos que visam conscientizar a
+        sociedade sobre a importância da diversidade e da igualdade racial.
+      </p>
+    </div>
+    <div class="img-banner-eventos">
+      <img
+        src="https://www.fema.edu.br/wp-content/uploads/2024/05/Prancheta-Festival.png"
+        alt=""
+      />
+    </div>
+  </section>
+  <hr />
+  <section class="lista-eventos">
+    <h4 class="titulo">Lista de Eventos</h4>
+    <div class="listagem">
+      <div class="card-evento" *ngFor="let evento of eventosDisponiveis">
+        <div class="imagem-evento">
+          <div class="header-card">
+            <h6>{{ evento?.titulo }}</h6>
+          </div>
+          <div
+            class="img-card"
+            [ngStyle]="{
+            'background': 'url(assets/Eventos/' + evento.imgSource + ') center center no-repeat',
+            'background-size': 'cover',
+          }"
+          ></div>
+          <div class="body-card">
+            <p>{{ evento?.descricao }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

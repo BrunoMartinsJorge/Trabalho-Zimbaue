@@ -1,0 +1,156 @@
+header {
+  width: 175px;
+  height: 100vh;
+  background-color: #652c00;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-right: 2px solid #fff;
+  transition: .6s;
+}
+
+header .header-sidebar {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1em;
+  align-items: center;
+}
+
+header .logofoto {
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
+  background: url(../../../assets/logo.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+header .logotipo {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #fff;
+  position: relative;
+}
+
+header .link-pages ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1em;
+  padding: 0;
+}
+
+header .link-pages ul li {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+}
+
+header .link-pages ul li a {
+  font-size: 1em;
+  text-decoration: none;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  padding: 0.5em;
+  transition: 0.5s;
+  align-items: center;
+  justify-content: start;
+  grid-gap: 0.5em;
+  z-index: 1000000;
+}
+
+header .link-pages ul li::before {
+  content: "";
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background-color: #ffffff4f;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+header .link-pages ul li:hover::before {
+  width: 100%;
+}
+
+header .link-pages ul li a i {
+  font-size: 1.2em;
+  color: #fff;
+  padding: 8px;
+  border-radius: 50%;
+  font-weight: 200;
+  background-color: #ffffff4f;
+}
+
+header .link-pages ul li:hover a {
+  color: #fff;
+}
+
+header .link-pages ul li.ativo a {
+  color: #fff;
+  background-color: #ffffff4f;
+}
+
+header .link-pages ul li.ativo a:hover {
+  background-color: transparent;
+}
+
+#fora-header {
+  width: 50%;
+  height: 60px;
+  bottom: 0;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  z-index: 1000000000000000;
+  padding: 0.5em;
+  display: none;
+}
+
+@media (max-width: 750px) {
+  #fora-header {
+    display: flex;
+  }
+  header {
+    width: 100vw !important;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    z-index: 1000000000000000000;
+    border: none;
+  }
+  .header-sidebar,
+  .link-pages {
+    display: none !important;
+    transform: translateY(-100%);
+  }
+  header.navbar-ativa{
+    height: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1em 0 0 0;
+  }
+  header.navbar-ativa ul{
+    display: flex;
+    width: 90vw;
+  }
+  header.navbar-ativa .link-pages{
+    display: flex !important;
+    transform: translateY(0%);
+    transition: .4s;
+  }
+}

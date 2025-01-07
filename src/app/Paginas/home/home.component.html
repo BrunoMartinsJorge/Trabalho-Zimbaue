@@ -1,0 +1,89 @@
+<p-toast [style]="{marginTop: '50px'}"/>
+<main>
+  <section class="slider">
+    <div
+      class="item-slide"
+      *ngFor="let item of listaDeSlides"
+      [ngClass]="{ ativo: slideAtivo === item.titulo }"
+      [ngStyle]="{
+        'background-image': item.imgSource
+          ? 'url(../../../assets/Slider/' + item.imgSource + '.jpg)'
+          : 'none',
+        'background-position': 'center center',
+        'background-repeat': 'no-repeat',
+        'background-size': 'cover'
+      }"
+      (mouseenter)="abrirSlider(item.titulo)"
+    >
+      <div class="imgae-slider"></div>
+      <h4 class="titulo-slide">{{ item.titulo }}</h4>
+      <span id="icon-slider" class="pi pi-book"><p></p></span>
+      <div class="descricao-slide">
+        <span class="sub-titulo">{{ item.titulo }}</span>
+        <p>
+          {{ item.descricao }}
+        </p>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <section class="formulario">
+    <div class="banner-form"></div>
+    <form [formGroup]="cadastro" (ngSubmit)="enviarCadastro()">
+      <h2 class="titulo-secao">Junte-se a nós!</h2>
+      <div class="input-element">
+        <label for="nome-completo">Nome Completo</label>
+        <input
+          pInputText
+          type="text"
+          id="nome-completo"
+          placeholder="Seu nome..."
+          formControlName="nome"
+        />
+      </div>
+
+      <div class="input-element">
+        <label for="email">Email</label>
+        <input
+          pInputText
+          type="email"
+          id="email"
+          placeholder="@gmail - @outlook..."
+          formControlName="email"
+        />
+      </div>
+
+      <div class="input-element">
+        <label for="idade">Idade</label>
+        <input
+          pInputText
+          type="number"
+          id="idade"
+          placeholder="Maiores de 18 anos"
+          formControlName="idade"
+          min="0"
+        />
+        <div
+          *ngIf="cadastro.get('idade')?.hasError('idadeInvalida')"
+          class="error"
+        >
+          A idade mínima é 18 anos
+        </div>
+      </div>
+
+      <div class="input-element">
+        <label for="telefone-contato">Telefone de Contato</label>
+        <p-inputMask
+          id="telefone-contato"
+          placeholder="00 000 0000-0000"
+          mask="+99(999)999999999"
+          formControlName="telefone"
+        />
+      </div>
+
+      <div class="btn-form">
+        <button [disabled]="!cadastro.valid">Enviar Solicitação</button>
+      </div>
+    </form>
+  </section>
+</main>
